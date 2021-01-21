@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.scss'
-import Album from '../components/album'
+import Head from "next/head";
+import styles from "../styles/Home.module.scss";
+import Album from "../components/album";
 
 export default function Home() {
   return (
@@ -11,11 +11,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        {/* <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Albums</a>
-        </h1> */}
-        <Album name="Album name" img="this is the image"></Album>
+      <Album name="Album name"></Album>
+      <Album name="Album name"></Album>
       </main>
     </div>
-  )
+  );
 }
