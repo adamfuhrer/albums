@@ -1,31 +1,34 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { forwardRef } from "react";
 import styles from "../styles/Album.module.scss";
-import Image from 'next/image'
+// import Image from "next/image";
 
-interface albumProps {
-  name: string;
-  img?: string;
-}
+export const Album = forwardRef(
+  ({ url, index, faded, style, ...props }, ref) => {
+    const inlineStyles = {
+      opacity: faded ? "0.3" : "1",
+      backgroundImage: `url("${url}")`,
+      ...style,
+    };
 
-const Album: React.FC<albumProps> = ({ name, img = "/blonde.jpeg" }) => {
-  return (
-    <div>
-      <motion.img
+    return (
+      <div
+        tabIndex={0} // needed for keyboard events to work
+        ref={ref}
         className={styles.album}
-        drag
-        dragConstraints={{
-          top: -500,
-          left: -500,
-          right: 500,
-          bottom: 500,
-        }}
-        src={img}
-        whileTap={{ scale: 1.2 }}
-      >
-      </motion.img>
-    </div>
-  );
-};
+        style={inlineStyles}
+        {...props}
+      />
+    );
 
-export default Album;
+    // return (
+    //   <Image
+    //     ref={ref}
+    //     src={url}
+    //     alt="Picture of the author"
+    //     width={200}
+    //     height={200}
+    //     {...props}
+    //   />
+    // );
+  }
+);

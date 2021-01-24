@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
-import Album from "../components/album";
+import AlbumGallery from "../components/AlbumGallery";
 
 export default function Home() {
   return (
@@ -11,8 +11,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-      <Album name="Album name"></Album>
-      <Album name="Album name"></Album>
+        <AlbumGallery></AlbumGallery>
       </main>
     </div>
   );
