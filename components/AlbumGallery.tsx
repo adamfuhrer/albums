@@ -17,11 +17,11 @@ import {
 
 import { Grid } from "./Grid";
 import { SortableAlbum } from "./SortableAlbum";
-import albums from "../albums.json";
+import albumsJson from "../albums.json";
 import { Album } from "./Album";
 
 const AlbumGallery = () => {
-  const [items, setItems] = useState(albums);
+  const [albums, setAlbums] = useState(albumsJson);
   const [activeId, setActiveId] = useState(null);
 
   const mouseSensor = useSensor(MouseSensor, {
@@ -48,16 +48,21 @@ const AlbumGallery = () => {
       onDragEnd={handleDragEnd}
       onDragCancel={handleDragCancel}
     >
-      <SortableContext items={items} strategy={rectSortingStrategy}>
+      <SortableContext items={albums} strategy={rectSortingStrategy}>
         <Grid columns={3}>
-          {items.map((url, index) => (
-            <SortableAlbum key={url} url={url} index={index} />
+          {albums.map((url, index) => (
+            <SortableAlbum
+              key={url}
+              url={url}
+              index={index}
+              onDeleteClick={handleDeleteClick}
+            />
           ))}
         </Grid>
       </SortableContext>
       <DragOverlay adjustScale={true}>
         {activeId ? (
-          <Album url={activeId} index={items.indexOf(activeId)} />
+          <Album url={activeId} index={albums.indexOf(activeId)} />
         ) : null}
       </DragOverlay>
     </DndContext>
@@ -71,7 +76,7 @@ const AlbumGallery = () => {
     const { active, over } = event;
 
     if (over && active.id !== over.id) {
-      setItems((items) => {
+      setAlbums((items) => {
         const oldIndex = items.indexOf(active.id);
         const newIndex = items.indexOf(over.id);
 
@@ -84,6 +89,10 @@ const AlbumGallery = () => {
 
   function handleDragCancel() {
     setActiveId(null);
+  }
+
+  function handleDeleteClick(index: number) {
+    setAlbums(albums.filter((_, i) => i !== index));
   }
 };
 

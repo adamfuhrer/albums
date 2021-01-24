@@ -5,9 +5,47 @@
   height: 260px;
   background-size: cover;
   background-position: center;
+  position: relative;
+
+  .delete {
+    display: none;
+    bottom: 6px;
+    left: 6px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 350ms var(--cubic-bezier) 0s;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: rgba(255, 255, 255, 0.9);
+    }
+  }
 
   &:hover {
     cursor: grab;
+
+    .delete {
+      display: block;
+      opacity: 1;
+      background-color: rgba(0, 0, 0, .4);
+      transition: background-color 350ms var(--cubic-bezier) 0s;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, .6);
+        transition: background-color 350ms var(--cubic-bezier) 0s;
+      }
+    }
   }
 
   &:active {

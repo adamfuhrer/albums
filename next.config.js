@@ -1,5 +1,5 @@
 // module.exports = {
 //   images: {
-//     domains: [],
+//     domains: ["cdn.shopify.com", "media.pitchfork.com"],
 //   },
 // }

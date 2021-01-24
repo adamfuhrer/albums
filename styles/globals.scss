@@ -1,3 +1,8 @@
+:root {
+  --transition-normal: all 350ms var(--cubic-bezier) 0s;
+  --cubic-bezier: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
 html,
 body {
   padding: 0;
@@ -14,4 +19,19 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+button {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  width: 20px;
+  height: 20px;
+
+  :hover {
+    cursor: pointer;
+  }
 }

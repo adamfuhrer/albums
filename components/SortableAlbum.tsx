@@ -23,6 +23,7 @@ export const SortableAlbum = (props) => {
       ref={setNodeRef}
       style={style}
       faded={isDragging}
+      onDeleteClick={props.onDeleteClick}
       {...props}
       {...attributes}
       {...listeners}
