@@ -25,6 +25,7 @@ export const SortableAlbum = (props) => {
       faded={isDragging}
       onDeleteClick={props.onDeleteClick}
       isEditable={props.isEdiable}
+      size={props.size}
       {...props}
       {...attributes}
       {...listeners}

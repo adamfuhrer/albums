@@ -30,6 +30,7 @@ interface AlbumGalleryProps {
 const AlbumGallery: React.FC<AlbumGalleryProps> = ({ isEditable = true }) => {
   const [albums, setAlbums] = useState(albumsJson);
   const [activeId, setActiveId] = useState(null);
+  const [albumSize, setAlbumSize] = useState(200);
 
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: {
@@ -97,6 +98,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({ isEditable = true }) => {
                 index={index}
                 onDeleteClick={handleDeleteClick}
                 isEditable={true}
+                size={albumSize}
               />
             ))}
           </Grid>
@@ -106,6 +108,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({ isEditable = true }) => {
             <Album
               url={activeId}
               index={albums.indexOf(activeId)}
+              size={albumSize}
               // style={dragOverlayStyles}
             />
           )}
@@ -116,7 +119,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({ isEditable = true }) => {
     return (
       <Grid columns={4}>
         {albums.map((url, index) => (
-          <Album url={url} isEditable={false} />
+          <Album url={url} isEditable={false} size={albumSize} />
         ))}
       </Grid>
     );

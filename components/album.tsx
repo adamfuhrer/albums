@@ -3,12 +3,23 @@ import styles from "../styles/Album.module.scss";
 
 export const Album = forwardRef(
   (
-    { url, index, faded, style, onDeleteClick, isEditable = false, ...props },
+    {
+      url,
+      index,
+      faded,
+      style,
+      onDeleteClick,
+      isEditable = false,
+      size = 200,
+      ...props
+    },
     ref
   ) => {
     const albumStyles = {
       opacity: faded ? "0.3" : "1",
       backgroundImage: `url("${url}")`,
+      width: `${size}px`,
+      height: `${size}px`,
       ...style,
     };
 
@@ -27,7 +38,7 @@ export const Album = forwardRef(
       <div
         ref={ref}
         style={{
-          perspective: "400px",
+          perspective: `calc(${size}px + 300px)`,
         }}
         {...props}
       >
