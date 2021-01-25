@@ -74,10 +74,9 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({ isEditable = true }) => {
     setAlbums(albums.filter((_, i) => i !== index));
   }
 
-  // const dragOverlayStyles = {
-  //   transform: "scale(1.1)",
-  //   transition: "all 350ms var(--cubic-bezier) 0s",
-  // };
+  const dragOverlayStyles = {
+    cursor: "grabbing",
+  };
 
   if (isEditable) {
     return (
@@ -109,7 +108,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({ isEditable = true }) => {
               url={activeId}
               index={albums.indexOf(activeId)}
               size={albumSize}
-              // style={dragOverlayStyles}
+              style={dragOverlayStyles}
             />
           )}
         </DragOverlay>
@@ -118,7 +117,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({ isEditable = true }) => {
   } else {
     return (
       <Grid columns={4}>
-        {albums.map((url, index) => (
+        {albums.map((url) => (
           <Album url={url} isEditable={false} size={albumSize} />
         ))}
       </Grid>
