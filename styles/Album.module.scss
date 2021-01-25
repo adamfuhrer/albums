@@ -1,6 +1,6 @@
 .album {
   border-radius: 3px;
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, .25);
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, .4);
   width: 200px;
   height: 200px;
   background-size: cover;
@@ -53,6 +53,26 @@
 
     &:active {
       cursor: grabbing;
+    }
+  }
+}
+
+.deleting {
+  &.album {
+    animation-duration: 1s;
+    animation-name: deleteAlbum;
+    transform-origin: bottom center;
+
+    @keyframes deleteAlbum {
+      from {
+        opacity: 1;
+        transform: rotateX(0deg);
+      }
+
+      to {
+        opacity: 0.2;
+        transform: rotateX(100deg);
+      }
     }
   }
 }
