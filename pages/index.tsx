@@ -9,9 +9,9 @@ export default function Home() {
         <title>Album Rotation</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className={styles.main}>
-        <AlbumGallery></AlbumGallery>
+        <AlbumGallery isEditable={true}></AlbumGallery>
+        <AlbumGallery isEditable={false}></AlbumGallery>
       </main>
     </div>
   );
