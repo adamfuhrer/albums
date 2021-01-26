@@ -118,7 +118,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({ isEditable = true }) => {
     return (
       <Grid columns={4}>
         {albums.map((url) => (
-          <Album url={url} isEditable={false} size={albumSize} />
+          <Album key={url} url={url} isEditable={false} size={albumSize} />
         ))}
       </Grid>
     );

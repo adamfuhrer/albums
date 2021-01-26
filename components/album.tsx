@@ -16,7 +16,7 @@ export const Album = forwardRef(
     ref
   ) => {
     const albumStyles = {
-      opacity: faded ? "0.3" : "1",
+      opacity: faded ? "0" : "1",
       backgroundImage: `url("${url}")`,
       width: `${size}px`,
       height: `${size}px`,
@@ -24,6 +24,7 @@ export const Album = forwardRef(
     };
 
     const [isDeleting, setIsDeleting] = useState(false);
+    const [isShowingInfo, setIsShowingInfo] = useState(false);
 
     function deleteWithAnimation(index, e) {
       setIsDeleting(true);
@@ -34,11 +35,16 @@ export const Album = forwardRef(
       }, 800);
     }
 
+    function onInfoClick() {
+      setIsShowingInfo(!isShowingInfo);
+      console.log(isShowingInfo);
+    }
+
     return (
       <div
         ref={ref}
         style={{
-          perspective: `calc(${size}px + 300px)`,
+          perspective: `${size + 300}px`,
         }}
         {...props}
       >
@@ -53,7 +59,7 @@ export const Album = forwardRef(
         >
           {isEditable && (
             <button
-              className={styles.delete}
+              className={`${styles.button} ${styles.delete}`}
               onClick={(e) => deleteWithAnimation(index, e)}
             >
               <svg
@@ -68,6 +74,18 @@ export const Album = forwardRef(
               </svg>
             </button>
           )}
+
+          <button
+            className={`${styles.button} ${styles.info}`}
+            onClick={() => onInfoClick()}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 469.333 469.333"
+            >
+              <path d="M234.667 0C105.271 0 0 114.844 0 256v117.333C0 379.224 4.776 384 10.667 384h32v42.667c0 23.531 19.135 42.667 42.667 42.667h32a10.66 10.66 0 0010.667-10.667v-192A10.66 10.66 0 00117.334 256h-32c-23.531 0-42.667 19.135-42.667 42.667V256c0-117.635 86.135-213.333 192-213.333s192 95.698 192 213.333v42.667C426.667 275.135 407.531 256 384 256h-32a10.66 10.66 0 00-10.667 10.667v192A10.66 10.66 0 00352 469.334h32c23.531 0 42.667-19.135 42.667-42.667V384h32c5.891 0 10.667-4.776 10.667-10.667V256C469.333 114.844 364.063 0 234.667 0z" />
+            </svg>
+          </button>
         </div>
       </div>
     );
