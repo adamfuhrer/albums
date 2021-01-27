@@ -20,15 +20,15 @@ import { restrictToParentElement } from "@dnd-kit/modifiers";
 
 import { Grid } from "./Grid";
 import { SortableAlbum } from "./SortableAlbum";
-import albumsJson from "../albums.json";
 import { Album } from "./Album";
 
 interface AlbumGalleryProps {
   isEditable?: boolean;
+  albumList: any;
 }
 
-const AlbumGallery: React.FC<AlbumGalleryProps> = ({ isEditable = true }) => {
-  const [albums, setAlbums] = useState(albumsJson);
+const AlbumGallery: React.FC<AlbumGalleryProps> = ({ albumList, isEditable = true }) => {
+  const [albums, setAlbums] = useState(albumList);
   const [activeId, setActiveId] = useState(null);
   const [albumSize, setAlbumSize] = useState(200);
 
