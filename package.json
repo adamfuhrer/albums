@@ -11,10 +11,10 @@
     "@dnd-kit/core": "^1.0.1",
     "@dnd-kit/modifiers": "^1.0.1",
     "@dnd-kit/sortable": "^1.0.1",
-    "framer-motion": "^3.2.1",
     "next": "10.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-spring": "^8.0.27",
     "sass": "^1.32.4"
   },
   "devDependencies": {

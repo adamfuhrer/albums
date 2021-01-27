@@ -62,24 +62,3 @@
     }
   }
 }
-
-.deleting {
-  &.album {
-    animation-duration: 0.9s;
-    animation-name: delete;
-    transform-origin: bottom center;
-    transform-style: preserve-3d;
-
-    @keyframes delete {
-      from {
-        opacity: 1;
-        transform: rotateX(0deg) translateZ(0px) translateY(0px);
-      }
-
-      to {
-        opacity: 0.3;
-        transform: rotateX(75deg) translateZ(-40px) translateY(-80px);
-      }
-    }
-  }
-}

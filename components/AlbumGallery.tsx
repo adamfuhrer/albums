@@ -27,7 +27,10 @@ interface AlbumGalleryProps {
   albumList: any;
 }
 
-const AlbumGallery: React.FC<AlbumGalleryProps> = ({ albumList, isEditable = true }) => {
+const AlbumGallery: React.FC<AlbumGalleryProps> = ({
+  albumList,
+  isEditable = true,
+}) => {
   const [albums, setAlbums] = useState(albumList);
   const [activeId, setActiveId] = useState(null);
   const [albumSize, setAlbumSize] = useState(200);
