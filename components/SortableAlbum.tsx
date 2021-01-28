@@ -26,9 +26,9 @@ export const SortableAlbum = (props) => {
       onDeleteClick={props.onDeleteClick}
       isEditable={props.isEdiable}
       size={props.size}
+      attributes={attributes}
+      listeners={listeners}
       {...props}
-      {...attributes}
-      {...listeners}
     />
   );
 };
