@@ -11,7 +11,13 @@ export const SortableAlbum = (props) => {
     setNodeRef,
     transform,
     transition,
-  } = useSortable({ id: props.url });
+  } = useSortable({
+    id: props.url,
+    transition: {
+      duration: 300,
+      easing: "cubic-bezier(0.215, 0.61, 0.355, 1)",
+    },
+  });
 
   const style = {
     transform: CSS.Transform.toString(transform),

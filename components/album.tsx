@@ -43,15 +43,16 @@ export const Album = forwardRef(
     }
 
     const deleteSpring = useSpring({
-      opacity: isDeleting ? 0.4 : 1,
+      opacity: isDeleting ? 0.3 : 1,
       transformOrigin: "bottom center",
       transform: `
-        rotateX(${isDeleting ? 76 : 0}deg)
-        scale(${isDeleting ? 0.86 : 1})
-        translateY(${isDeleting ? -20 : 0}px)
+        rotateX(${isDeleting ? 70 : 0}deg)
+        scale(${isDeleting ? 0.9 : 1})
+        translateY(${isDeleting ? -22 : 0}px)
       `,
       config: {
         mass: 4,
+        tension: 280,
       },
     });
 
@@ -60,7 +61,7 @@ export const Album = forwardRef(
         <div
           ref={ref as React.RefObject<HTMLDivElement>}
           style={{
-            perspective: `${size + 200}px`,
+            perspective: `${size + 400}px`,
           }}
           {...props}
           // tabIndex={0} // needed for keyboard events to work

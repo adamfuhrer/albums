@@ -35,11 +35,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({
   const [activeId, setActiveId] = useState(null);
   const [albumSize, setAlbumSize] = useState(200);
 
-  const mouseSensor = useSensor(MouseSensor, {
-    activationConstraint: {
-      distance: 5,
-    },
-  });
+  const mouseSensor = useSensor(MouseSensor);
   const touchSensor = useSensor(TouchSensor, {
     activationConstraint: {
       delay: 250,
@@ -48,7 +44,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({
   });
   const keyboardSensor = useSensor(KeyboardSensor);
 
-  const sensors = useSensors(mouseSensor, touchSensor, keyboardSensor);
+  const sensors = useSensors(mouseSensor, touchSensor);
 
   function handleDragStart(event: DragStartEvent) {
     setActiveId(event.active.id);
@@ -105,7 +101,14 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({
             ))}
           </Grid>
         </SortableContext>
-        <DragOverlay adjustScale={true} modifiers={[restrictToParentElement]}>
+        <DragOverlay
+          adjustScale={true}
+          modifiers={[restrictToParentElement]}
+          dropAnimation={{
+            duration: 300,
+            easing: "cubic-bezier(0.215, 0.61, 0.355, 1)",
+          }}
+        >
           {activeId && (
             <Album
               url={activeId}
