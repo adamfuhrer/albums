@@ -84,7 +84,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({
   if (isEditable) {
     return (
       <DndContext
-        autoScroll={false}
+        autoScroll={true}
         sensors={sensors}
         collisionDetection={closestCenter}
         onDragStart={handleDragStart}
