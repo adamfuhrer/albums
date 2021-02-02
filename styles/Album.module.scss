@@ -5,15 +5,6 @@
   background-position: center;
   background-color: #777777;
 
-  .button {
-    opacity: 0;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 350ms var(--cubic-bezier) 0s;
-  }
-
   &:hover {
     .button {
       opacity: 1;
@@ -24,41 +15,51 @@
       }
     }
   }
+
+  .button {
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 350ms var(--cubic-bezier) 0s;
+  
+    &.delete {
+      left: -12px;
+      top: -12px;
+      background-color: #555;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      box-shadow: var(--box-shadow-normal);
+    
+      svg {
+        fill: white;
+        width: 10px;
+        height: 10px;
+      }
+    
+      &:hover {
+        cursor: pointer;
+        background-color: #666;
+      }
+    }
+    
+    &.drag {
+      width: 40px;
+      height: 40px;
+      right: 0;
+    
+      svg {
+        fill: rgba(255, 255, 255, 0.9);
+        width: 24px;
+        height: 24px;
+      }
+    
+      &:hover {
+        cursor: grab;
+      }
+    }
+  }
 }
 
-.delete {
-  left: -12px;
-  top: -12px;
-  background-color: #555;
-  border-radius: 50%;
-  width: 26px;
-  height: 26px;
-  box-shadow: var(--box-shadow-normal);
-
-  svg {
-    fill: white;
-    width: 10px;
-    height: 10px;
-  }
-
-  &:hover {
-    cursor: pointer;
-    background-color: #666;
-  }
-}
-
-.drag {
-  width: 40px;
-  height: 40px;
-  right: 0;
-
-  svg {
-    fill: rgba(255, 255, 255, 0.9);
-    width: 24px;
-    height: 24px;
-  }
-
-  &:hover {
-    cursor: grab;
-  }
-}
