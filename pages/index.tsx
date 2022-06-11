@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <AlbumGallery isEditable={true} albumList={albums}></AlbumGallery>
-        <AlbumGallery isEditable={false} albumList={albums}></AlbumGallery>
+        {/* <AlbumGallery isEditable={false} albumList={albums}></AlbumGallery> */}
       </main>
     </div>
   );
