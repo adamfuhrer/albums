@@ -1,6 +1,6 @@
 ## Albums
 
-An experimental UI for organizing and deleting album artwork.
+An experimental UI for organizing and deleting albums.
 
 Uses:
 - Drag and drop: dnd-kit (https://github.com/clauderic/dnd-kit)
