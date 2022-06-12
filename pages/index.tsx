@@ -21,6 +21,8 @@ export default function Home() {
       <Head>
         <title>Album Rotation</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content="Album Rotation" key="title" />
+        <meta name="description" content="Organize and visualize your favorite albums"/>
       </Head>
       <main className={styles.main}>
         <a className={styles.github_link} title="Github repo" href="https://github.com/adamfuhrer/albums" target="_blank">

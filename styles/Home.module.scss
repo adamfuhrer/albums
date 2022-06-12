@@ -5,6 +5,8 @@
 
 .main {
   padding: 60px;
+  width: 100%;
+  max-width: 1040px;
 }
 
 .github_link {
@@ -25,4 +27,10 @@
 .github_link:hover svg {
   fill: #ff3ed4;
   transition: fill 0.2s ease;
+}
+
+@media screen and (max-width: 700px) {
+  .main {
+    padding: 30px;
+  }
 }
