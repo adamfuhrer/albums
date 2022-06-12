@@ -39,7 +39,7 @@ export const Album = forwardRef(
     };
 
     const [isDeleting, setIsDeleting] = useState(false);
-    const [isShowingInfo, setIsShowingInfo] = useState(false);
+    // const [isShowingInfo, setIsShowingInfo] = useState(false);
 
     function deleteWithAnimation(index: number, e: Event) {
       setIsDeleting(true);
@@ -50,9 +50,9 @@ export const Album = forwardRef(
       }, 800);
     }
 
-    function onInfoClick() {
-      setIsShowingInfo(!isShowingInfo);
-    }
+    // function onInfoClick() {
+    //   setIsShowingInfo(!isShowingInfo);
+    // }
 
     // const infoSpring = useSpring({
     //   transformOrigin: "left center",
@@ -106,9 +106,8 @@ export const Album = forwardRef(
               <div
                 className={styles.album}
                 style={albumStyles}
-                onClick={onInfoClick}
               >
-                {!isDeleting && !isShowingInfo && (
+                {!isDeleting && (
                   <>
                     <button
                       className={`${styles.button} ${styles.delete}`}
