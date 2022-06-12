@@ -4,5 +4,25 @@
 }
 
 .main {
-  padding: 100px;
+  padding: 60px;
+}
+
+.github_link {
+  display: inline-flex;
+  color: white;
+  position: fixed;
+  top: 14px;
+  right: 14px
+}
+
+.github_link svg {
+  fill: white;
+  width: 20px;
+  height: 20px;
+  transition: fill 0.2s ease;
+}
+
+.github_link:hover svg {
+  fill: #ff3ed4;
+  transition: fill 0.2s ease;
 }

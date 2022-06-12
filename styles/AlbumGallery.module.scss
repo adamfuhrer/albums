@@ -1,0 +1,46 @@
+.add_album {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  input {
+    width: 260px;
+    background: transparent;
+    font-family: Fira Code,monospace;
+    height: 40px;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    background: #52555f;
+    border: 1px solid  hsla(0,0%,100%,0.3);
+    color: #fff;
+
+    &::placeholder {
+      color: #CCCCCC;
+    }
+  }
+
+  button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    svg {
+      color: white;
+      transition: color 0.2s ease;
+    }
+    
+    &:hover {
+      cursor: pointer;
+
+      svg {
+        color: #ff3ed4;
+        transition: color 0.2s ease;
+      }
+    }
+  }
+}
+
