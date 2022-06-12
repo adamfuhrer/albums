@@ -3,15 +3,15 @@ import styles from "../styles/Album.module.scss";
 import { useSpring, animated } from "react-spring";
 
 interface AlbumInterface {
-  url: any,
-  index
-  faded,
-  style,
-  onDeleteClick,
-  isEditable,
-  size,
-  attributes,
-  listeners,
+  url?: any,
+  index?,
+  faded?,
+  style?,
+  onDeleteClick?,
+  isEditable?,
+  size?,
+  attributes?,
+  listeners?,
 }
 
 export const Album = forwardRef(
