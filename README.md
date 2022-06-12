@@ -8,4 +8,4 @@ Uses:
 - Local storage for persisting album artwork
 
 
-![albums-1](https://user-images.githubusercontent.com/10779827/173211549-4a4718ac-13a0-4168-8bd2-150c6c62d7fc.gif)
+![albums-2](https://user-images.githubusercontent.com/10779827/173236033-fee2d756-ac8a-4c16-b9c5-a8d23172ab1e.gif)
