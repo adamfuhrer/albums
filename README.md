@@ -3,8 +3,8 @@
 A simple tool to help organize and visualize your favorite albums
 
 Uses:
-- Drag and drop: dnd-kit (https://github.com/clauderic/dnd-kit)
-- Delete animation: react-spring (https://react-spring.io/)
+- `dnd-kit` for drag & drop (https://github.com/clauderic/dnd-kit)
+- `react-spring` for delete animation (https://react-spring.io/)
 - Local storage for persisting album artwork
 
 
