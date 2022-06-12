@@ -1,6 +1,6 @@
 ## Album Rotation
 
-A simple tool to help you visualize your favorite albums
+A simple tool to help organize and visualize your favorite albums
 
 Uses:
 - Drag and drop: dnd-kit (https://github.com/clauderic/dnd-kit)
