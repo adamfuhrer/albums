@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/AlbumGallery.module.scss";
 import {
   DndContext,
@@ -33,12 +33,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({
 }) => {
   const [albums, setAlbums] = useState(albumList);
   const [activeId, setActiveId] = useState(null);
-  const [albumSize, setAlbumSize] = useState(200);
-  const albumUrlElement = useRef(null) 
-
-  useEffect(() => {
-    localStorage.setItem("albums", JSON.stringify(albums));
-  }, [albums]);
+  const [textInput, setTextInput] = useState('');
 
   const mouseSensor = useSensor(MouseSensor);
   const touchSensor = useSensor(TouchSensor, {
@@ -48,6 +43,13 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({
     },
   });
   const sensors = useSensors(mouseSensor, touchSensor);
+  
+  const albumSize = 200;
+  const dragOverlayStyles = { cursor: "grabbing" };
+
+  useEffect(() => {
+    localStorage.setItem("albums", JSON.stringify(albums));
+  }, [albums]);
 
   function handleDragStart(event: DragStartEvent) {
     setActiveId(event.active.id);
@@ -60,7 +62,6 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({
       setAlbums((items) => {
         const oldIndex = items.indexOf(active.id);
         const newIndex = items.indexOf(over.id);
-
         return arrayMove(items, oldIndex, newIndex);
       });
     }
@@ -77,26 +78,27 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({
   }
 
   function handleAlbumAdd() {
-    let url = albumUrlElement.current.value;
-    if (isImageURL(url)) {
-      setAlbums([...albums, url]);
-      albumUrlElement.current.value = "";
+    if (isImageURL(textInput)) {
+      setAlbums([...albums, textInput]);
+      setTextInput("");
     }
   }
 
   function isImageURL(url) {
-    return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+    return(url.match(/\.(jpeg|jpg|png)$/) != null);
   }
 
-  const dragOverlayStyles = {
-    cursor: "grabbing",
-  };
 
   if (isEditable) {
     return (
       <>
         <div className={styles.add_album}>
-          <input type="text" ref={albumUrlElement} placeholder="Album artwork URL"/>
+          <input
+            type="text"
+            value={textInput}
+            onChange={e => setTextInput(e.target.value)}
+            placeholder="Album artwork URL"/>
+          
           <button onClick={handleAlbumAdd}>
             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -105,6 +107,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({
             </svg>
           </button>
         </div> 
+        
         <DndContext
           autoScroll={true}
           sensors={sensors}
@@ -114,7 +117,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({
           onDragCancel={handleDragCancel}
         >
           <SortableContext items={albums} strategy={rectSortingStrategy}>
-            <Grid columns={4}>
+            <Grid>
               {albums && (albums.map((url, index) => (
                 <SortableAlbum
                   key={url}
@@ -127,6 +130,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({
               )))}
             </Grid>
           </SortableContext>
+          
           <DragOverlay
             adjustScale={true}
             modifiers={[restrictToParentElement]}
@@ -149,7 +153,7 @@ const AlbumGallery: React.FC<AlbumGalleryProps> = ({
     );
   } else {
     return (
-      <Grid columns={4}>
+      <Grid>
         {albums.map((url) => (
           <Album key={url} url={url} isEditable={false} size={albumSize} />
         ))}
