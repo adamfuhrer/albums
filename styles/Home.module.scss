@@ -4,7 +4,8 @@
 }
 
 .main {
-  padding: 60px;
+  padding: 30px;
+  padding-top: 60px;
   width: 100%;
   max-width: 1040px;
 }
@@ -31,7 +32,7 @@
 
 @media screen and (max-width: 700px) {
   .main {
-    padding: 30px;
+    padding: 20px;
     padding-top: 60px;
   }
 }

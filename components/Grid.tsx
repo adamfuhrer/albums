@@ -1,18 +1,8 @@
 import React from "react";
+import styles from "../styles/Grid.module.scss";
 
-interface GridProps {
-  columns: number;
-}
-
-export const Grid: React.FC<GridProps> = ({ children, columns }) => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: `repeat(auto-fill, 200px)`,
-      gridGap: 30,
-      justifyContent: "center"
-    }}
-  >
+export const Grid: React.FC<any> = ({ children }) => (
+  <div className={styles.grid}>
     {children}
   </div>
 );
